@@ -83,7 +83,7 @@ const Hero = () => {
 
   return (
     <section>
-      <div className="max-container padding-container flex flex-col lg:flex-row gap-4 py-10 pt-32 lg:py-32 overflow-visible h-screen">
+      <div className="max-container padding-container flex flex-col lg:flex-row gap-4 mb-14 py-32 3xl:py-48 overflow-visible min-h-screen">
         <div className="flex flex-col">
           <div className="flex gap-3 font-option ml-1">
             {introduction.map((item, index) => (
