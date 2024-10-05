@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,7 +12,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
@@ -21,7 +21,31 @@ body {
 }
 
 @layer utilities {
+  .max-container {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  .padding-container {
+    @apply px-6 lg:px-20 3xl:px-0;
+  }
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-heading {
+    @apply font-inter text-[48px] md:text-[5vw] 3xl:text-[4vw]  font-[500] leading-[120%];
+  }
+
+  .font-option {
+    @apply font-inter text-[12px] md:text-[16px] font-[300] leading-[120%];
+  }
+
+  .font-section {
+    @apply font-playfair text-[40px] md:text-[64px] font-[400] leading-[120%];
+  }
+
+  .font-text {
+    @apply font-inter text-[16px] md:text-[18px] font-[400] leading-[150%];
   }
 }
