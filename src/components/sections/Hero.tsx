@@ -45,12 +45,18 @@ const Hero = () => {
       url: "https://www.linkedin.com/in/kenzie-evan/",
       className: "",
     },
-    // {
-    //   path: "/icons/email.svg",
-    //   label: "email",
-    //   url: "mailto:etkenzie@gmail.com",
-    //   className: "",
-    // },
+    {
+      path: "/icons/email.svg",
+      label: "email",
+      url: "mailto:etkenzie@gmail.com",
+      className: "",
+    },
+    {
+      path: "/icons/resume.svg",
+      label: "resume",
+      url: "/Kenzie_CV.pdf",
+      className: "",
+    },
   ];
 
   const [activeTitle, setActiveTitle] = useState(introduction[0].title);
@@ -62,29 +68,41 @@ const Hero = () => {
   };
 
   const handleClick2 = (url: string) => {
-    window.open(url);
+    if (url === "/Kenzie_CV.pdf") {
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "Kenzie_CV.pdf"); // Set download attribute
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // For other URLs (like GitHub, LinkedIn, etc.), open in a new tab
+      window.open(url, "_blank");
+    }
   };
 
   return (
     <section>
-      <div className="max-container padding-container flex flex-col gap-4 py-10 pt-32 lg:py-32 overflow-visible h-screen">
-        <div className="flex gap-3 font-option ml-1">
-          {introduction.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleClick(item.title, item.content)}
-              className={`cursor-pointer ${
-                activeTitle === item.title
-                  ? "text-primary font-semibold"
-                  : "text-gray-600 hover:font-semibold "
-              }`}
-            >
-              <h2>{item.title}</h2>
-            </div>
-          ))}
+      <div className="max-container padding-container flex flex-col lg:flex-row gap-4 py-10 pt-32 lg:py-32 overflow-visible h-screen">
+        <div className="flex flex-col">
+          <div className="flex gap-3 font-option ml-1">
+            {introduction.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => handleClick(item.title, item.content)}
+                className={`cursor-pointer ${
+                  activeTitle === item.title
+                    ? "text-primary font-semibold"
+                    : "text-gray-600 hover:font-semibold "
+                }`}
+              >
+                <h2>{item.title}</h2>
+              </div>
+            ))}
+          </div>
+          <div className="font-heading lg:w-9/12">{content}</div>
         </div>
-        <div className="font-heading lg:w-9/12">{content}</div>
-        <div className="flex gap-3">
+        <div className="flex lg:flex-col gap-4  w-32">
           {icons.map((item, index) => (
             <div
               key={index}
@@ -95,8 +113,8 @@ const Hero = () => {
                 <Image
                   src={`${item.path}`}
                   alt={`${item.label}`}
-                  width={24}
-                  height={24}
+                  width={35}
+                  height={35}
                 />
               }
             </div>
