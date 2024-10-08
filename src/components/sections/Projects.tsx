@@ -1,5 +1,5 @@
 import React from "react";
-import Project2 from "../elements/Project2";
+import Project from "../elements/Project";
 
 const Projects = () => {
   const projects = [
@@ -7,7 +7,7 @@ const Projects = () => {
       title: "Cashmere Health",
       stack: ["Next", "React", "MongoDB", "Figma"],
       description:
-        "A website to simplify the process of getting a doctor’s diagnosis. Patients talk to the web conversational flow which automatically generates a report to medical professionals ",
+        "A website to simplify the process of getting a doctor’s diagnosis. Patients talk to the web conversational flow which automatically generates a report to medical professionals.",
       img: "/icons/cashmere.png",
       url: "https://www.cashmerehealth.com/",
     },
@@ -15,7 +15,7 @@ const Projects = () => {
       title: "Maze Navigator",
       stack: ["Android Studio", "Java"],
       description:
-        "3D Maze Application, incorporating multiple methods of traversal (robot or manually). With user-friendly maze graphical interface allowing for user controls ",
+        "3D Maze Application, incorporating multiple methods of traversal (robot or manually). With user-friendly maze graphical interface allowing for user controls.",
       img: "/icons/maze.svg",
       url: "https://github.com/etKenzie/Maze_Navigator",
     },
@@ -35,7 +35,7 @@ const Projects = () => {
         <div className="self-center font-section">Projects</div>
         <div className="flex flex-col gap-20">
           {projects.map((item, index) => (
-            <Project2
+            <Project
               key={index}
               title={item.title}
               stack={item.stack}

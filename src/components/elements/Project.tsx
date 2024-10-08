@@ -4,23 +4,22 @@ import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 import ShimmerButton from "../ui/shimmer-button";
 
-interface Props {
+interface ProjectProps {
   title: string;
   stack: string[];
+  image: string;
   description: string;
-  image?: string;
   url: string;
 }
 
-const Project: React.FC<Props> = ({
+const Project: React.FC<ProjectProps> = ({
   title,
   stack,
   image,
   description,
   url,
 }) => {
-  const [ref, isInView] = useInView({ threshold: 0.1 });
-
+  const [ref, isInView] = useInView({ threshold: 0.4 });
   const handleClick = (url: string) => {
     window.open(url);
   };
@@ -28,43 +27,41 @@ const Project: React.FC<Props> = ({
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className={`flex justify-between transition-opacity duration-1000 ease-in-out ${
+      className={`transition-opacity duration-1000 ease-in-out ${
         isInView ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="flex flex-col">
-        <div className="font-heading ">{title}</div>
-        <div className="flex gap-3 font-playfair text-[20px]">
-          {stack.map((item, index) => (
-            <div
-              key={index}
-              //   onClick={() => handleClick(item.title, item.content)}
-              className={``}
-            >
-              <div>{item}</div>
-            </div>
-          ))}
+      <div className="flex flex-col md:flex-row gap-4 items-center">
+        <div className="md:w-1/3">
+          <Image src={image} alt={title} width={300} height={300} />
         </div>
-
-        <div className="font-text mt-2 lg:w-3/5">{description}</div>
-        {/* <Button
-          type="button"
-          title="Visit"
-          className="w-40 mt-3 border-black bg-black px-8 py-2 text-white font-inter text-[14px] lg:text-[16px] rounded-xl"
-          onClick={() => handleClick(url)}
-        /> */}
-        <ShimmerButton
-          className="shadow-2xl lg:w-56 mt-3 lg:h-10"
-          borderRadius="10px"
-          onClick={() => handleClick(url)}
-        >
-          <span className="whitespace-pre-wrap text-center text-sm font-inter text-[16px] lg:text-[16px] rounded-xl leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-            Visit
-          </span>
-        </ShimmerButton>
-      </div>
-      <div className="flex items-center">
-        <Image src={`${image}`} alt={`${image}`} width={180} height={180} />
+        <div className="md:w-2/3">
+          <h3 className="font-heading text-2xl mb-2">{title}</h3>
+          <div className="flex gap-3 font-playfair text-[18px] md:text-[20px]">
+            {stack.map((tech, index) => (
+              <span
+                key={index}
+                className="bg-gray-200 text-gray-800 px-2 py-1 rounded "
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+          <p className="font-text mt-2 ">{description}</p>
+          <ShimmerButton
+            className="shadow-2xl md:w-56 mt-3 md:h-10 w-full border-black bg-blue"
+            background="black"
+            shimmerColor="white"
+            borderRadius="10px"
+            onClick={() => handleClick(url)}
+            shimmerSize="0.2em"
+            shimmerDuration="3s"
+          >
+            <span className="whitespace-pre-wrap text-center text-sm font-inter text-[16px] lg:text-[16px] rounded-xl leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              Visit
+            </span>
+          </ShimmerButton>
+        </div>
       </div>
     </div>
   );
