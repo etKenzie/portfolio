@@ -22,7 +22,7 @@ const Hero = () => {
     {
       title: "Future Boss",
       content:
-        "Definitely for sure 100% doing work for real right now. No distractions in any possible way certainly for sure",
+        "Looking forward to collaborating with you and the team! I will do my best to keep you informed and stay on task",
     },
 
     {
