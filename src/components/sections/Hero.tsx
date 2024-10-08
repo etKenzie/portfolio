@@ -21,7 +21,7 @@ const Hero = () => {
     {
       title: "Co-workers",
       content:
-        "Happy to start working with you! If you ever need help feel free to reach out and hope it is alright if contact you as well",
+        "Happy to start working with you! If you ever need help feel free to reach out and hope it is alright if I contact you as well",
     },
     {
       title: "Future Boss",
