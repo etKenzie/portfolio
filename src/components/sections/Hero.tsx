@@ -26,7 +26,7 @@ const Hero = () => {
     {
       title: "Future Boss",
       content:
-        "Looking forward to collaborating with you and the team! I will do my best to keep you informed and stay on task",
+        "Looking forward to adding value and growing with the team to find creative solutions, and foster clear communication",
     },
 
     {
