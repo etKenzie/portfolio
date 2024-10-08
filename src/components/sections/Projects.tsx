@@ -1,5 +1,5 @@
 import React from "react";
-import Project from "../elements/Project";
+import Project2 from "../elements/Project2";
 
 const Projects = () => {
   const projects = [
@@ -28,21 +28,21 @@ const Projects = () => {
       url: "https://github.com/etKenzie/HVAC-Systems",
     },
   ];
+
   return (
     <section>
       <div className="max-container padding-container flex flex-col gap-24 py-10 pb-32 lg:py-20 overflow-visible">
         <div className="self-center font-section">Projects</div>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-20">
           {projects.map((item, index) => (
-            <div key={index}>
-              <Project
-                title={item.title}
-                stack={item.stack}
-                image={item.img}
-                description={item.description}
-                url={item.url}
-              />
-            </div>
+            <Project2
+              key={index}
+              title={item.title}
+              stack={item.stack}
+              image={item.img}
+              description={item.description}
+              url={item.url}
+            />
           ))}
         </div>
       </div>

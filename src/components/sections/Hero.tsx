@@ -12,12 +12,12 @@ const Hero = () => {
     {
       title: "Recruiters",
       content:
-        "I have experience working with APIs, QA testing, and collaborating closely with my peers. Now actively looking for a new role",
+        "I have experience working on APIs, Testing, and working closely with my peers. Now actively looking for a new role",
     },
     {
       title: "Co-workers",
       content:
-        "Happy to start working with you! If you ever need help feel free to reach out and hope it is alright if I do the same",
+        "Happy to start working with you! If you ever need help feel free to reach out and hope it is alright if contact you as well",
     },
     {
       title: "Future Boss",
@@ -83,8 +83,8 @@ const Hero = () => {
 
   return (
     <section>
-      <div className="max-container padding-container flex flex-col lg:flex-row gap-4 mb-14 py-32 3xl:py-48 overflow-visible min-h-screen">
-        <div className="flex flex-col">
+      <div className="max-container  padding-container lg:grid lg:grid-cols-12 lg:flex-row gap-4 mb-14 py-12 lg:py-32 3xl:py-48 overflow-visible min-h-screen">
+        <div className="  lg:col-span-11">
           <div className="flex gap-3 font-option ml-1">
             {introduction.map((item, index) => (
               <div
@@ -102,21 +102,21 @@ const Hero = () => {
           </div>
           <div className="font-heading lg:w-9/12">{content}</div>
         </div>
-        <div className="flex lg:flex-col gap-4  w-32">
+        <div className="flex lg:flex-col pt-4 gap-4 w-32 items-end">
           {icons.map((item, index) => (
             <div
               key={index}
               onClick={() => handleClick2(item.url)}
               className={`cursor-pointer ${item.className}`}
+              style={{ width: "35px", height: "35px" }} // Ensure consistent size
             >
-              {
-                <Image
-                  src={`${item.path}`}
-                  alt={`${item.label}`}
-                  width={35}
-                  height={35}
-                />
-              }
+              <Image
+                src={`${item.path}`}
+                alt={`${item.label}`}
+                width={35}
+                height={35}
+                className="fill-current text-gray-500 hover:text-blue-500 transition-colors duration-300" // Add the hover class here
+              />
             </div>
           ))}
         </div>
