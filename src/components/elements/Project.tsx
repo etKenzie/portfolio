@@ -27,11 +27,11 @@ const Project: React.FC<ProjectProps> = ({
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className={`transition-opacity duration-1000 ease-in-out ${
+      className={`transition-opacity duration-1000 ease-in-out m-3  ${
         isInView ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="flex flex-col md:flex-row gap-4 items-center">
+      <div className="flex flex-col md:flex-row gap-4 items-center ">
         <div className="md:w-1/3">
           <Image src={image} alt={title} width={300} height={300} />
         </div>

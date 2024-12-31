@@ -31,9 +31,11 @@ const Projects = () => {
 
   return (
     <section>
-      <div className="max-container padding-container flex flex-col gap-24 py-10 pb-32 lg:py-20 overflow-visible">
-        <div className="self-center font-section">Projects</div>
-        <div className="flex flex-col gap-20">
+      <div className="max-container padding-container flex flex-col gap-16 py-16 lg:py-24 overflow-visible">
+        <h2 className="text-4xl font-bold text-center font-section">
+          Projects
+        </h2>
+        <div className="flex flex-col gap-16">
           {projects.map((item, index) => (
             <Project
               key={index}
